@@ -1,6 +1,6 @@
 # Mainline U-Boot on MediaTek mt6582
 
-Works uart, sd-card (including download).
+Works uart, sd-card.
 
 ## Build
 ```
