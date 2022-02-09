@@ -104,30 +104,28 @@
 	
 	mmc1_pins_default: mmc1default {
 		mux {
-			function = "sd";
-			groups =  "sd_0";
+			function = "msdc";
+			groups =  "msdc1", "msdc1_wp_0";
 		};
-		/* "I2S2_OUT, "I2S4_IN"", "I2S3_IN", "I2S2_IN",
-		 *  "I2S4_OUT", "I2S3_OUT" are used as DAT0, DAT1,
-		 *  DAT2, DAT3, CMD, CLK for SD respectively.
-		 */
+
 		conf-cmd-data {
-			pins = "I2S2_OUT", "I2S4_IN", "I2S3_IN",
-			       "I2S2_IN","I2S4_OUT";
+			pins = "MSDC1_DAT0", "MSDC1_DAT1", "MSDC1_DAT2",
+			       "MSDC1_DAT3", "MSDC1_DAT3", "MSDC1_CMD";
 			input-enable;
-			drive-strength = <8>;
-			bias-pull-up;
-		};
-		conf-clk {
-			pins = "I2S3_OUT";
-			drive-strength = <12>;
-			bias-pull-down;
-		};
-		conf-cd {
-			pins = "TXD3";
+			drive-strength = <4>;
 			bias-pull-up;
 		};
 
+		conf-clk {
+			pins = "MSDC1_CLK";
+			drive-strength = <4>;
+		};
+
+		conf-wp {
+			pins = "EINT7";
+			input-enable;
+			bias-pull-up;
+		};
 	};
 
 	uart0_pins_a: uart0-default {
